@@ -11,6 +11,7 @@ Multi-page rebuild of the Simplify Co. website (previously a single `index.html`
 | `/about` | `src/about.njk` — our story, community sign-up |
 | `/our-team` | `src/our-team.njk` — founders |
 | `/contact` | `src/contact.njk` — contact form (Netlify form `contact`) |
+| `/privacy-policy` | `src/privacy-policy.njk` — linked from the footer small print and beside both forms, not the main nav |
 | `/assessment` | `src/assessment.html` — copied through unchanged |
 
 Shared pieces live in `src/_includes/`: `layouts/base.njk` (head, SEO/Open Graph tags), `partials/header.njk`, `partials/footer.njk`, `partials/community.njk`, `partials/cta.njk`. Navigation items are in `src/_data/site.json`; client logos in `src/_data/clients.json`.

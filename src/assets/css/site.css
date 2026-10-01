@@ -423,3 +423,23 @@ footer{background:var(--walnut-dark);color:rgba(255,255,255,0.7);padding:44px 0 
 @media (max-width:520px){
   .service-actions{flex-direction:column;align-items:stretch;}
 }
+
+/* ---------- PRIVACY / LEGAL ---------- */
+.legal{background:var(--paper);}
+.legal-wrap{max-width:760px;}
+.legal h1{font-size:40px;}
+.legal h2{font-size:21px;margin:40px 0 12px;}
+.legal p,.legal li{color:var(--ink-soft);font-size:16px;}
+.legal ul{margin:0 0 1em;padding-left:22px;}
+.legal li{margin-bottom:6px;}
+.legal a{color:var(--burnt-dark);text-decoration:underline;text-underline-offset:3px;}
+.legal a:hover{color:var(--walnut-dark);}
+.legal-updated{font-size:14px;margin-bottom:8px;}
+.form-note a{color:inherit;text-decoration:underline;text-underline-offset:2px;}
+.form-note a:hover{color:#fff;}
+.community p.community-note{font-size:12.5px;margin-top:10px;}
+.community-note a{text-decoration:underline;text-underline-offset:2px;}
+.community-note a:hover{color:var(--burnt-dark);}
+.footer-bottom a[aria-current="page"]{color:#fff;}
+@media (max-width:960px){.legal h1{font-size:34px;}}
+@media (max-width:520px){.legal h1{font-size:30px;}}
