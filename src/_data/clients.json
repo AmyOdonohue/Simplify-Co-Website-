@@ -78,5 +78,20 @@
     "name": "Link Wentworth",
     "src": "/assets/img/clients/link-wentworth.png",
     "dark": false
+  },
+  {
+    "name": "UNSW Sydney",
+    "src": "/assets/img/clients/unsw.png",
+    "dark": false
+  },
+  {
+    "name": "The University of Sydney",
+    "src": "/assets/img/clients/university-of-sydney.svg",
+    "dark": false
+  },
+  {
+    "name": "ASX (Australian Securities Exchange)",
+    "src": "/assets/img/clients/asx.svg",
+    "dark": false
   }
 ]

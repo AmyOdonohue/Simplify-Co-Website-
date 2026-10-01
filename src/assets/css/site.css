@@ -170,7 +170,7 @@ header{
 .logo-row{
   display:flex;flex-wrap:wrap;align-items:stretch;justify-content:center;
   gap:14px;
-  max-width:980px;margin:0 auto;
+  max-width:806px;margin:0 auto;
 }
 .logo-slot{
   flex:0 0 auto;height:64px;width:150px;
