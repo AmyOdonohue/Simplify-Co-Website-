@@ -35,6 +35,15 @@
     });
   }
 
+  var enquiries = {
+    'role-declutter-demo': "I'd like to book a 30-minute Role Declutter demo."
+  };
+  var message = document.getElementById('message');
+  var enquiry = new URLSearchParams(window.location.search).get('enquiry');
+  if (message && Object.prototype.hasOwnProperty.call(enquiries, enquiry) && !message.value) {
+    message.value = enquiries[enquiry] + '\n\n';
+  }
+
   netlifySubmit(
     document.getElementById('contact-form'),
     '<p role="status" style="color:#fff;font-size:16px;font-weight:600;">Thanks — your message is on its way. We\'ll be in touch soon.</p>',
