@@ -1,0 +1,81 @@
+---
+layout: layouts/base.njk
+permalink: index.html
+title: "Organisation Design Consultants Australia | Simplify Co."
+ogTitle: "Simplify Co. | Making Space for What Matters"
+description: "Simplify Co. helps Australian organisations cut through complexity with organisation design consulting, OD training, Role Declutter™ and AI work redesign."
+headExtra: |
+  <script>
+    (function(){var m={'#services':'/services','#about':'/about','#founders':'/our-team','#team':'/our-team','#our-team':'/our-team','#contact':'/contact'};var t=m[location.hash];if(t)location.replace(t);})();
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Simplify Co.",
+    "url": "https://simplifyco.com.au/",
+    "logo": "https://simplifyco.com.au/assets/img/logo.png",
+    "image": "https://simplifyco.com.au/assets/img/og-image.png",
+    "email": "hello@simplifyco.com.au",
+    "slogan": "Making Space for What Matters",
+    "description": "Human-centred transformation advisory: organisation design consulting, organisation design training, Role Declutter™ and AI–human work redesign.",
+    "areaServed": { "@type": "Country", "name": "Australia" },
+    "founder": [
+      { "@type": "Person", "name": "Amy O'Donohue", "jobTitle": "Founder & Chief Empowerment Officer" },
+      { "@type": "Person", "name": "Catia Davim", "jobTitle": "Founder & Chief Big Believer" }
+    ]
+  }
+  </script>
+---
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Human-Centred Transformation Advisory</div>
+      <h1>Making space for what matters</h1>
+      <p class="hero-sub">Simplify Co. helps organisations cut through complexity and fatigue so work becomes clearer, more joyful, and more impactful, led from within, by the people who do it.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="/assessment">Discover Your OD Archetype</a>
+        <a href="/services" class="btn btn-ghost">Explore Our Services</a>
+      </div>
+      <div class="hero-dates-label">Next Organisation Design Training Course · Sydney</div>
+      <div class="hero-dates">
+        <a href="{{ site.trainingUrl }}" target="_blank" rel="noopener" class="date-pill"><b>23–24 Sep</b></a>
+        <a href="{{ site.trainingUrl }}" target="_blank" rel="noopener" class="date-pill"><b>28–29 Oct</b></a>
+        <a href="{{ site.trainingUrl }}" target="_blank" rel="noopener" class="date-pill"><b>24–25 Nov</b></a>
+      </div>
+    </div>
+    <div class="pillars">
+      <a href="/services#role-declutter" class="pillar">
+        <div class="pillar-num">01</div>
+        <div><div class="pillar-title">Role Declutter&trade;</div><div class="pillar-sub">Remove low-value work, reclaim time</div></div>
+      </a>
+      <a href="/services#ai-human-work-redesign" class="pillar">
+        <div class="pillar-num">02</div>
+        <div><div class="pillar-title">Work Redesign</div><div class="pillar-sub">Human + AI operating models</div></div>
+      </a>
+      <a href="/services#organisation-design-training" class="pillar">
+        <div class="pillar-num">03</div>
+        <div><div class="pillar-title">OD Training</div><div class="pillar-sub">Build internal design capability</div></div>
+      </a>
+      <a href="/services#organisation-design-consulting" class="pillar">
+        <div class="pillar-num">04</div>
+        <div><div class="pillar-title">OD Consulting</div><div class="pillar-sub">Hands-on structure and role design</div></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="trustbar" aria-labelledby="clients-heading">
+  <div class="wrap">
+    <h2 class="trustbar-label" id="clients-heading">Trusted by teams across government &amp; industry</h2>
+    <div class="logo-row">
+      {%- for c in clients %}
+      <div class="logo-slot{% if c.dark %} logo-slot-dark{% endif %}"><img src="{{ c.src }}" alt="{{ c.name }} logo" loading="lazy"></div>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+{% include "partials/community.njk" %}
+
+{% include "partials/cta.njk" %}

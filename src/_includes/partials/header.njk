@@ -1,0 +1,17 @@
+<header>
+  <div class="nav">
+    <a href="/" class="brand"{% if path == "/" %} aria-current="page"{% endif %}>
+      <img src="/assets/img/logo.png" alt="Simplify Co. logo, home" width="1195" height="269">
+    </a>
+    <nav class="navlinks" id="site-nav" aria-label="Main">
+      {%- for item in site.nav %}
+      <a href="{{ item.url }}"{% if item.url == path %} aria-current="page"{% endif %}>{{ item.label }}</a>
+      {%- endfor %}
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-ghost btn-sm" href="/assessment">Take the Assessment</a>
+      <a href="/services" class="btn btn-primary btn-sm">Our Services</a>
+      <button class="menu-toggle" type="button" aria-label="Menu" aria-controls="site-nav" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>

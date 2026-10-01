@@ -1,0 +1,42 @@
+---
+layout: layouts/base.njk
+permalink: contact.html
+title: "Contact Us | Organisation Design Consulting | Simplify Co."
+description: "Talk to Simplify Co. about organisation design, work redesign, AI adoption or change fatigue. Email hello@simplifyco.com.au or send us a message."
+---
+<section id="contact" class="contact">
+  <div class="wrap contact-grid">
+    <div class="contact-copy">
+      <div class="eyebrow">Get In Touch</div>
+      <h1>Let's design work that truly works</h1>
+      <p>If your organisation is navigating reform, burnout, change fatigue, or the uncertainty that comes with AI, or if you're ready to rethink how work gets designed, we'd love to connect. We help organisations build clarity, capability, and confidence so leaders can design work that truly works.</p>
+      <a href="mailto:{{ site.email }}" class="contact-email">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        {{ site.email }}
+      </a>
+    </div>
+    <div class="contact-form">
+      <h2>Drop us a line</h2>
+      <form id="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="contact">
+        <p style="display:none">
+          <label>Leave this field blank: <input name="bot-field"></label>
+        </p>
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" placeholder="Your name" autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="email">Email *</label>
+          <input id="email" name="email" type="email" placeholder="you@company.com" autocomplete="email" required>
+        </div>
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell us about your organisation..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send</button>
+      </form>
+      <div class="form-note">Your details are only used to respond to your enquiry.</div>
+    </div>
+  </div>
+</section>

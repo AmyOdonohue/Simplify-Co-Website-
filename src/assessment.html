@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OD Maturity Assessment — Simplify Co</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --brand: #E85D23;
+  --brand-light: #FDF0EB;
+  --brand-mid: #F4C4AA;
+  --dark: #1C1915;
+  --mid: #4A4540;
+  --muted: #8A8580;
+  --surface: #F9F7F5;
+  --white: #FFFFFF;
+  --border: rgba(0,0,0,0.09);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--white);
+  color: var(--dark);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* NAV */
+nav {
+position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+display: flex; align-items: center; justify-content: space-between;
+padding: 0 5vw; height: 64px;
+background: rgba(255,255,255,0.92);
+backdrop-filter: blur(12px);
+border-bottom: 0.5px solid var(--border);
+}
+.nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.nav-logo svg { width: 28px; height: 28px; }
+.nav-brand { font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 500; color: var(--dark); letter-spacing: -0.02em; }
+.nav-brand span { color: var(--brand); }
+.nav-cta {
+background: var(--brand); color: #fff; border: none;
+padding: 8px 18px; border-radius: 6px; font-family: 'DM Sans', sans-serif;
+font-size: 13px; font-weight: 500; cursor: pointer; text-decoration: none;
+transition: opacity 0.2s;
+}
+.nav-cta:hover { opacity: 0.85; }
+
+/* HERO */
+.hero {
+min-height: 100vh;
+display: grid;
+grid-template-columns: 1fr 1fr;
+align-items: center;
+padding: 80px 5vw 5rem;
+gap: 5vw;
+position: relative;
+overflow: hidden;
+}
+.hero::before {
+content: '';
+position: absolute; top: -120px; right: -80px;
+width: 600px; height: 600px;
+background: radial-gradient(circle, #FDF0EB 0%, transparent 70%);
+border-radius: 50%;
+z-index: 0;
+}
+.hero-left { position: relative; z-index: 1; }
+.eyebrow {
+display: inline-flex; align-items: center; gap: 8px;
+background: var(--brand-light); color: var(--brand);
+font-size: 12px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase;
+padding: 6px 14px; border-radius: 20px; margin-bottom: 1.5rem;
+}
+.eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--brand); }
+.hero h1 {
+font-family: 'DM Serif Display', serif;
+font-size: clamp(38px, 5vw, 62px);
+line-height: 1.1;
+letter-spacing: -0.02em;
+color: var(--dark);
+margin-bottom: 1.25rem;
+}
+.hero h1 em { color: var(--brand); font-style: italic; }
+.hero-sub {
+font-size: 17px; font-weight: 300; color: var(--mid);
+line-height: 1.75; max-width: 440px; margin-bottom: 1.75rem;
+}
+.hero-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 0; }
+.hero-pill {
+display: flex; align-items: center; gap: 6px;
+background: var(--surface); border: 0.5px solid var(--border);
+border-radius: 20px; padding: 6px 14px;
+font-size: 13px; color: var(--mid);
+}
+.hero-pill svg { width: 14px; height: 14px; }
+.hero-btn {
+display: inline-flex; align-items: center; gap: 8px;
+background: var(--brand); color: #fff;
+font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 500;
+padding: 14px 28px; border-radius: 8px; text-decoration: none;
+border: none; cursor: pointer; transition: transform 0.2s, opacity 0.2s;
+}
+.hero-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+.hero-btn svg { width: 18px; height: 18px; }
+.hero-right {
+position: relative; z-index: 1;
+display: flex; align-items: center; justify-content: center;
+}
+.hero-card {
+background: var(--white); border: 0.5px solid var(--border);
+border-radius: 20px; padding: 36px; width: 100%; max-width: 380px;
+box-shadow: 0 20px 60px rgba(0,0,0,0.07);
+}
+.hc-header { display: flex; align-items: center; gap: 14px; margin-bottom: 1.5rem; }
+.hc-icon {
+width: 48px; height: 48px; border-radius: 12px;
+background: var(--brand-light); display: flex; align-items: center; justify-content: center;
+flex-shrink: 0;
+}
+.hc-title { font-size: 15px; font-weight: 500; color: var(--dark); margin-bottom: 2px; }
+.hc-sub { font-size: 13px; color: var(--muted); }
+.hc-archetypes { display: flex; flex-direction: column; gap: 10px; }
+.hc-arch {
+display: flex; align-items: center; gap: 12px;
+padding: 12px 14px; border-radius: 10px; background: var(--surface);
+border: 0.5px solid transparent; transition: border-color 0.2s;
+}
+.hc-arch:hover { border-color: var(--brand-mid); }
+.hc-arch-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.hc-arch-name { font-size: 13px; font-weight: 500; color: var(--dark); }
+.hc-arch-range { font-size: 11px; color: var(--muted); margin-top: 1px; }
+.hc-bar-wrap { flex: 1; }
+.hc-bar { height: 4px; border-radius: 2px; }
+
+/* ABOUT STRIP */
+.about-strip {
+background: var(--dark); color: #fff;
+padding: 5rem 5vw;
+}
+.about-inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+.about-label { font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--brand); margin-bottom: 1rem; }
+.about-h { font-family: 'DM Serif Display', serif; font-size: clamp(26px, 3.5vw, 40px); line-height: 1.2; margin-bottom: 1.25rem; }
+.about-p { font-size: 15px; font-weight: 300; line-height: 1.8; color: rgba(255,255,255,0.65); }
+.about-stats { display: flex; flex-direction: column; gap: 1.25rem; }
+.stat-row { display: flex; align-items: flex-start; gap: 1rem; padding: 1.25rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 0.5px solid rgba(255,255,255,0.08); }
+.stat-num { font-family: 'DM Serif Display', serif; font-size: 36px; color: var(--brand); line-height: 1; flex-shrink: 0; min-width: 60px; }
+.stat-label { font-size: 14px; color: rgba(255,255,255,0.65); padding-top: 6px; line-height: 1.5; }
+
+/* ARCHETYPES PREVIEW */
+.archetypes-section { padding: 5rem 5vw; background: var(--surface); }
+.section-header { text-align: center; margin-bottom: 3rem; }
+.section-label { font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--brand); margin-bottom: .75rem; }
+.section-h { font-family: 'DM Serif Display', serif; font-size: clamp(28px, 4vw, 44px); color: var(--dark); line-height: 1.15; }
+.archetypes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; max-width: 1000px; margin: 0 auto; }
+.arch-card {
+background: var(--white); border: 0.5px solid var(--border);
+border-radius: 14px; padding: 24px 20px;
+transition: transform 0.2s, box-shadow 0.2s;
+}
+.arch-card:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+.arch-card-icon { width: 52px; height: 52px; border-radius: 12px; background: var(--brand-light); display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; }
+.arch-card-name { font-size: 14px; font-weight: 500; color: var(--dark); margin-bottom: 4px; line-height: 1.3; }
+.arch-card-tag { font-size: 12px; color: var(--muted); line-height: 1.5; font-style: italic; }
+
+/* ASSESSMENT SECTION */
+.assessment-section { padding: 5rem 5vw; }
+.assess-wrap { max-width: 700px; margin: 0 auto; }
+.assess-header { text-align: center; margin-bottom: 2.5rem; }
+.assess-card {
+background: var(--white); border: 0.5px solid var(--border);
+border-radius: 20px; padding: 40px;
+box-shadow: 0 4px 30px rgba(0,0,0,0.06);
+}
+
+/* FACILITATORS */
+.facilitators { padding: 5rem 5vw; background: var(--surface); }
+.fac-inner { max-width: 900px; margin: 0 auto; }
+.fac-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 2.5rem; }
+.fac-card {
+background: var(--white); border: 0.5px solid var(--border);
+border-radius: 16px; padding: 28px; display: flex; gap: 20px; align-items: flex-start;
+}
+.fac-avatar {
+width: 56px; height: 56px; border-radius: 50%; flex-shrink: 0;
+background: var(--brand-light); display: flex; align-items: center; justify-content: center;
+font-family: 'DM Serif Display', serif; font-size: 20px; color: var(--brand);
+}
+.fac-name { font-size: 16px; font-weight: 500; color: var(--dark); margin-bottom: 2px; }
+.fac-role { font-size: 12px; color: var(--brand); font-weight: 500; margin-bottom: 8px; }
+.fac-bio { font-size: 13px; color: var(--muted); line-height: 1.65; }
+
+/* FOOTER */
+footer {
+background: var(--dark); color: rgba(255,255,255,0.5);
+padding: 2.5rem 5vw; display: flex; align-items: center; justify-content: space-between;
+flex-wrap: wrap; gap: 1rem;
+}
+.footer-brand { font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 500; color: #fff; }
+.footer-brand span { color: var(--brand); }
+.footer-links { display: flex; gap: 1.5rem; }
+.footer-links a { font-size: 13px; color: rgba(255,255,255,0.45); text-decoration: none; }
+.footer-links a:hover { color: rgba(255,255,255,0.85); }
+
+/* ASSESSMENT WIDGET STYLES */
+.aw * { box-sizing: border-box; }
+.aw-badge { display: inline-block; background: var(--brand-light); color: var(--brand); font-size: 12px; font-weight: 500; padding: 4px 12px; border-radius: 20px; margin-bottom: .875rem; }
+.aw-t1 { font-family: 'DM Serif Display', serif; font-size: 28px; color: var(--dark); margin-bottom: .5rem; line-height: 1.25; }
+.aw-t2 { font-size: 15px; color: var(--muted); line-height: 1.7; margin-bottom: 1.25rem; }
+.aw-pills { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 1.5rem; }
+.aw-pill { background: var(--surface); border: 0.5px solid var(--border); border-radius: 20px; padding: 5px 12px; font-size: 13px; color: var(--muted); }
+.aw-prog { height: 4px; background: rgba(0,0,0,0.08); border-radius: 2px; margin-bottom: 1.5rem; }
+.aw-prog-fill { height: 4px; background: var(--brand); border-radius: 2px; transition: width .4s ease; }
+.aw-qlbl { font-size: 13px; color: var(--muted); margin-bottom: .5rem; }
+.aw-qtext { font-size: 18px; font-weight: 500; color: var(--dark); margin-bottom: 1.125rem; line-height: 1.5; }
+.aw-opt { display: block; width: 100%; text-align: left; padding: 13px 15px; margin-bottom: 9px; background: var(--white); border: 0.5px solid var(--border); border-radius: 12px; cursor: pointer; font-size: 14px; color: var(--dark); line-height: 1.5; transition: border-color .15s, background .15s; font-family: 'DM Sans', sans-serif; }
+.aw-opt:hover { border-color: var(--brand); background: var(--brand-light); }
+.aw-opt.sel { border-color: var(--brand); background: var(--brand-light); }
+.aw-orow { display: flex; align-items: flex-start; gap: 11px; }
+.aw-olet { width: 24px; height: 24px; border-radius: 50%; background: var(--surface); border: 0.5px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 500; flex-shrink: 0; color: var(--muted); transition: background .15s; font-family: 'DM Sans', sans-serif; }
+.aw-opt.sel .aw-olet { background: var(--brand); color: #fff; border-color: var(--brand); }
+.aw-navrow { display: flex; justify-content: space-between; align-items: center; margin-top: 1.125rem; }
+.aw-bbk { background: none; border: 0.5px solid var(--border); border-radius: 8px; padding: 8px 16px; cursor: pointer; font-size: 14px; color: var(--muted); font-family: 'DM Sans', sans-serif; }
+.aw-bbk:hover { background: var(--surface); }
+.aw-bnx { background: var(--brand); border: none; border-radius: 8px; padding: 10px 22px; cursor: pointer; font-size: 14px; font-weight: 500; color: #fff; opacity: .35; pointer-events: none; transition: opacity .2s; font-family: 'DM Sans', sans-serif; }
+.aw-bnx.on { opacity: 1; pointer-events: auto; }
+.aw-bnx.on:hover { opacity: .88; }
+.aw-bpri { background: var(--brand); border: none; border-radius: 8px; padding: 11px 26px; cursor: pointer; font-size: 15px; font-weight: 500; color: #fff; display: inline-block; text-decoration: none; font-family: 'DM Sans', sans-serif; transition: opacity .2s; }
+.aw-bpri:hover { opacity: .88; }
+.aw-fgrp { margin-bottom: .875rem; }
+.aw-flbl { font-size: 13px; color: var(--mid); margin-bottom: 5px; display: block; }
+.aw-inp { display: block; width: 100%; padding: 10px 13px; border: 1px solid rgba(0,0,0,0.18); border-radius: 8px; font-size: 14px; color: var(--dark); font-family: 'DM Sans', sans-serif; background: var(--white); }
+.aw-inp:focus { outline: none; border-color: var(--brand); box-shadow: 0 0 0 3px rgba(232,93,35,0.1); }
+.aw-ferr { font-size: 12px; color: #c0392b; margin-top: 4px; display: none; }
+.aw-check { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 1.25rem; }
+.aw-check-t { font-size: 13px; color: var(--muted); line-height: 1.5; padding-top: 2px; }
+.aw-skip { background: none; border: none; font-size: 13px; color: var(--muted); cursor: pointer; text-decoration: underline; font-family: 'DM Sans', sans-serif; }
+.aw-skip:hover { color: var(--dark); }
+.aw-icon-circle { width: 88px; height: 88px; border-radius: 50%; background: var(--brand-light); border: 0.5px solid var(--brand-mid); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem; }
+.aw-arch-center { text-align: center; margin-bottom: 1.125rem; }
+.aw-arch-title { font-family: 'DM Serif Display', serif; font-size: 26px; color: var(--dark); margin-bottom: .375rem; }
+.aw-arch-tag { font-size: 15px; color: var(--brand); font-style: italic; }
+.aw-arch-desc { font-size: 15px; color: var(--mid); line-height: 1.7; margin-bottom: 1.375rem; }
+.aw-sc-row { margin-bottom: 1.375rem; }
+.aw-sc-lbl { font-size: 13px; color: var(--muted); margin-bottom: 6px; }
+.aw-sc-track { height: 8px; background: var(--surface); border-radius: 4px; }
+.aw-sc-fill { height: 8px; background: var(--brand); border-radius: 4px; }
+.aw-ax-title { font-size: 15px; font-weight: 500; margin-bottom: .875rem; color: var(--dark); }
+.aw-ax { display: flex; gap: 12px; padding: 12px 15px; background: var(--surface); border-radius: 10px; margin-bottom: 8px; align-items: flex-start; }
+.aw-axn { width: 24px; height: 24px; border-radius: 50%; background: var(--brand); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 500; flex-shrink: 0; }
+.aw-axt { font-size: 14px; color: var(--dark); line-height: 1.5; }
+.aw-cta { margin-top: 1.375rem; padding: 1.25rem; background: var(--brand-light); border-radius: 14px; border: 0.5px solid var(--brand-mid); }
+.aw-cta-h { font-size: 14px; font-weight: 500; color: var(--brand); margin-bottom: .5rem; }
+.aw-cta-p { font-size: 13px; color: var(--mid); line-height: 1.6; margin-bottom: .875rem; }
+.aw-rst { background: none; border: 0.5px solid var(--border); border-radius: 8px; padding: 8px 16px; cursor: pointer; font-size: 13px; color: var(--muted); margin-top: 1rem; display: block; width: 100%; text-align: center; font-family: 'DM Sans', sans-serif; }
+.aw-rst:hover { background: var(--surface); }
+.aw-req { color: var(--brand); }
+.aw-opt-note { font-size: 12px; color: var(--muted); font-style: italic; }
+.aw-screen { display: none; }
+.aw-screen.active { display: block; }
+
+@media (max-width: 768px) {
+.hero { grid-template-columns: 1fr; min-height: auto; padding-top: 100px; padding-bottom: 3rem; }
+.hero-right { display: none; }
+.about-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+.fac-grid { grid-template-columns: 1fr; }
+.archetypes-grid { grid-template-columns: 1fr 1fr; }
+.assess-card { padding: 24px 20px; }
+footer { flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 480px) {
+.archetypes-grid { grid-template-columns: 1fr; }
+}
+</style>
+
+</head>
+<body>
+
+<!-- NAV -->
+
+<nav>
+  <a class='nav-logo' href='/'>
+    <svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" fill="#FDF0EB" stroke="#E85D23" stroke-width="1"/><path d="M8 14h12M14 8l6 6-6 6" stroke="#E85D23" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="nav-brand">Simplify <span>Co.</span></span>
+  </a>
+  <a class="nav-cta" href="https://events.humanitix.com/organisation-design-training-course" target="_blank">Join the Masterclass</a>
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="eyebrow"><div class="eyebrow-dot"></div>Organisation Design Maturity</div>
+    <h1>Where are you on your <em>OD journey?</em></h1>
+    <p class="hero-sub">Discover your Organisation Design archetype and get a personalised roadmap to level up your practice — in under 5 minutes.</p>
+    <div class="hero-pills">
+      <div class="hero-pill">
+        <svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.5" stroke="#8A8580" stroke-width="1"/><path d="M8 5v3.5L10 10" stroke="#8A8580" stroke-width="1" stroke-linecap="round"/></svg>
+        4 minutes
+      </div>
+      <div class="hero-pill">
+        <svg viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="12" height="12" rx="2" stroke="#8A8580" stroke-width="1"/><path d="M5 8h6M5 5.5h6M5 10.5h4" stroke="#8A8580" stroke-width="1" stroke-linecap="round"/></svg>
+        10 questions
+      </div>
+      <div class="hero-pill">
+        <svg viewBox="0 0 16 16" fill="none"><path d="M8 2l1.5 4.5H14l-3.75 2.75 1.5 4.5L8 11l-3.75 2.75 1.5-4.5L2 6.5h4.5L8 2z" stroke="#8A8580" stroke-width="1" stroke-linejoin="round"/></svg>
+        5 archetypes
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-card">
+      <div class="hc-header">
+        <div class="hc-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2L3 7l9 5 9-5-9-5zM3 12l9 5 9-5M3 17l9 5 9-5" stroke="#E85D23" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div><div class="hc-title">5 OD Archetypes</div><div class="hc-sub">Where do you land?</div></div>
+      </div>
+      <div class="hc-archetypes">
+        <div class="hc-arch"><div class="hc-arch-dot" style="background:#E85D23;opacity:0.25"></div><div><div class="hc-arch-name">Reactive Restructurer</div><div class="hc-arch-range">Score 10–17</div></div><div class="hc-bar-wrap"><div class="hc-bar" style="width:25%;background:#E85D23;opacity:0.3"></div></div></div>
+        <div class="hc-arch"><div class="hc-arch-dot" style="background:#E85D23;opacity:0.45"></div><div><div class="hc-arch-name">Blueprint Builder</div><div class="hc-arch-range">Score 18–24</div></div><div class="hc-bar-wrap"><div class="hc-bar" style="width:45%;background:#E85D23;opacity:0.45"></div></div></div>
+        <div class="hc-arch"><div class="hc-arch-dot" style="background:#E85D23;opacity:0.62"></div><div><div class="hc-arch-name">Principled Practitioner</div><div class="hc-arch-range">Score 25–30</div></div><div class="hc-bar-wrap"><div class="hc-bar" style="width:62%;background:#E85D23;opacity:0.62"></div></div></div>
+        <div class="hc-arch"><div class="hc-arch-dot" style="background:#E85D23;opacity:0.8"></div><div><div class="hc-arch-name">Systems Architect</div><div class="hc-arch-range">Score 31–36</div></div><div class="hc-bar-wrap"><div class="hc-bar" style="width:80%;background:#E85D23;opacity:0.8"></div></div></div>
+        <div class="hc-arch"><div class="hc-arch-dot" style="background:#E85D23"></div><div><div class="hc-arch-name">North Star Navigator</div><div class="hc-arch-range">Score 37–40</div></div><div class="hc-bar-wrap"><div class="hc-bar" style="width:100%;background:#E85D23"></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT STRIP -->
+
+<section class="about-strip">
+  <div class="about-inner">
+    <div>
+      <div class="about-label">About the assessment</div>
+      <h2 class="about-h">OD done well changes everything</h2>
+      <p class="about-p">Most restructures address the symptom, not the cause. This assessment helps you understand where your current practice sits — and exactly what to do next to build more rigorous, human-centred OD work.</p>
+    </div>
+    <div class="about-stats">
+      <div class="stat-row"><div class="stat-num">10</div><div class="stat-label">questions spanning the full OD lifecycle — from diagnosis to implementation</div></div>
+      <div class="stat-row"><div class="stat-num">5</div><div class="stat-label">distinct archetypes mapped to real practitioner profiles we see in every organisation</div></div>
+      <div class="stat-row"><div class="stat-num">5</div><div class="stat-label">personalised action steps to progress your development — specific, not generic</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ARCHETYPES PREVIEW -->
+
+<section class="archetypes-section">
+  <div class="section-header">
+    <div class="section-label">The archetypes</div>
+    <h2 class="section-h">Which one are you?</h2>
+  </div>
+  <div class="archetypes-grid">
+    <div class="arch-card">
+      <div class="arch-card-icon">
+        <svg width="28" height="28" viewBox="0 0 48 48" fill="none"><path d="M28 4L12 28H22L18 44L36 20H26L28 4Z" fill="#E85D23" fill-opacity="0.25" stroke="#E85D23" stroke-width="2" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="arch-card-name">The Reactive Restructurer</div>
+      <div class="arch-card-tag">Fixing fires without the method to stop them returning</div>
+    </div>
+    <div class="arch-card">
+      <div class="arch-card-icon">
+        <svg width="28" height="28" viewBox="0 0 48 48" fill="none"><path d="M8 40L24 8L40 40Z" fill="#E85D23" fill-opacity="0.2" stroke="#E85D23" stroke-width="2" stroke-linejoin="round"/><line x1="18" y1="28" x2="30" y2="28" stroke="#E85D23" stroke-width="2" stroke-linecap="round"/><line x1="8" y1="40" x2="40" y2="40" stroke="#E85D23" stroke-width="2.5" stroke-linecap="round"/></svg>
+      </div>
+      <div class="arch-card-name">The Blueprint Builder</div>
+      <div class="arch-card-tag">Good instincts, growing discipline — on the right track</div>
+    </div>
+    <div class="arch-card">
+      <div class="arch-card-icon">
+        <svg width="28" height="28" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="16" stroke="#E85D23" stroke-width="2"/><polygon points="24,10 21,22 24,20 27,22" fill="#E85D23"/><polygon points="24,38 27,26 24,28 21,26" fill="#E85D23" fill-opacity="0.35"/><circle cx="24" cy="24" r="2.5" fill="#E85D23"/></svg>
+      </div>
+      <div class="arch-card-name">The Principled Practitioner</div>
+      <div class="arch-card-tag">Strong methodology — ready to stretch further and lead</div>
+    </div>
+    <div class="arch-card">
+      <div class="arch-card-icon">
+        <svg width="28" height="28" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="10" r="5" fill="#E85D23" fill-opacity="0.2" stroke="#E85D23" stroke-width="2"/><circle cx="9" cy="37" r="5" fill="#E85D23" fill-opacity="0.2" stroke="#E85D23" stroke-width="2"/><circle cx="39" cy="37" r="5" fill="#E85D23" fill-opacity="0.2" stroke="#E85D23" stroke-width="2"/><line x1="24" y1="15" x2="12" y2="33" stroke="#E85D23" stroke-width="1.5"/><line x1="24" y1="15" x2="36" y2="33" stroke="#E85D23" stroke-width="1.5"/><line x1="14" y1="37" x2="34" y2="37" stroke="#E85D23" stroke-width="1.5"/></svg>
+      </div>
+      <div class="arch-card-name">The Systems Architect</div>
+      <div class="arch-card-tag">Operating at the frontier — strategic OD partner</div>
+    </div>
+    <div class="arch-card">
+      <div class="arch-card-icon">
+        <svg width="28" height="28" viewBox="0 0 48 48" fill="none"><polygon points="24,4 27,17 40,17 30,25 34,38 24,30 14,38 18,25 8,17 21,17" fill="#E85D23" fill-opacity="0.2" stroke="#E85D23" stroke-width="2" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="arch-card-name">The North Star Navigator</div>
+      <div class="arch-card-tag">Highest mastery — setting direction for the whole field</div>
+    </div>
+  </div>
+</section>
+
+<!-- ASSESSMENT -->
+
+<section class="assessment-section" id="assessment">
+  <div class="assess-wrap">
+    <div class="assess-header">
+      <div class="section-label">The assessment</div>
+      <h2 class="section-h">Discover your archetype</h2>
+    </div>
+    <div class="assess-card aw">
+      <!-- INTRO -->
+      <div class="aw-screen active" id="aw-intro">
+        <div class="aw-badge">Organisation design maturity</div>
+        <div class="aw-t1">Where are you on your OD journey?</div>
+        <div class="aw-t2">Answer 10 questions and discover your Organisation Design archetype — plus a personalised roadmap to level up your practice.</div>
+        <div class="aw-pills"><span class="aw-pill">10 questions</span><span class="aw-pill">~4 minutes</span><span class="aw-pill">5 archetypes</span></div>
+        <button class="aw-bpri" onclick="awStart()" style="width:100%;text-align:center;padding:14px">Start the assessment →</button>
+      </div>
+      <!-- QUESTIONS -->
+      <div id="aw-qc"></div>
+      <!-- CAPTURE -->
+      <div class="aw-screen" id="aw-cap">
+        <div class="aw-prog"><div class="aw-prog-fill" style="width:100%"></div></div>
+        <div class="aw-badge">Almost there</div>
+        <div class="aw-t1">Unlock your results</div>
+        <div class="aw-t2">Enter your details to reveal your OD archetype and personalised development roadmap.</div>
+        <div class="aw-fgrp">
+          <label class="aw-flbl" for="aw-fname">Full name <span class="aw-req">*</span></label>
+          <input class="aw-inp" type="text" id="aw-fname" placeholder="Your name">
+          <div class="aw-ferr" id="aw-e-name">Please enter your name</div>
+        </div>
+        <div class="aw-fgrp">
+          <label class="aw-flbl" for="aw-femail">Work email <span class="aw-req">*</span></label>
+          <input class="aw-inp" type="email" id="aw-femail" placeholder="you@organisation.com">
+          <div class="aw-ferr" id="aw-e-email">Please enter a valid email address</div>
+        </div>
+        <div class="aw-fgrp">
+          <label class="aw-flbl" for="aw-forg">Organisation <span class="aw-opt-note">(optional)</span></label>
+          <input class="aw-inp" type="text" id="aw-forg" placeholder="Where do you work?">
+        </div>
+        <div class="aw-fgrp">
+          <label class="aw-flbl" for="aw-frole">Role <span class="aw-opt-note">(optional)</span></label>
+          <input class="aw-inp" type="text" id="aw-frole" placeholder="e.g. HR Business Partner, OD Practitioner">
+        </div>
+        <div class="aw-check">
+          <input type="checkbox" id="aw-fconsent" checked>
+          <div class="aw-check-t">I'd like to receive OD insights and updates from Simplify Co.</div>
+        </div>
+        <button class="aw-bpri" onclick="awSubmit()" style="width:100%;text-align:center;padding:13px">Reveal my archetype →</button>
+        <div class="aw-navrow" style="margin-top:.875rem">
+          <button class="aw-bbk" onclick="awBackCap()">← Back</button>
+          <button class="aw-skip" onclick="awShowRes()">Skip and see results</button>
+        </div>
+      </div>
+      <!-- RESULTS -->
+      <div class="aw-screen" id="aw-res"><div id="aw-res-inner"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+  <div class="footer-brand">Simplify <span>Co.</span></div>
+  <div style="font-size:13px">We help organisations redesign work so people can thrive.</div>
+  <div class="footer-links">
+    <a href='/'>simplifyco.com.au</a>
+    <a href="mailto:amy@simplifyco.com.au">Contact</a>
+    <a href="https://events.humanitix.com/organisation-design-training-course" target="_blank">Masterclass</a>
+  </div>
+</footer>
+
+<script>
+const AW_ICONS=[
+`<svg viewBox="0 0 48 48" fill="none" width="48" height="48"><path d="M28 4L12 28H22L18 44L36 20H26L28 4Z" fill="#E85D23" fill-opacity="0.2" stroke="#E85D23" stroke-width="2" stroke-linejoin="round"/></svg>`,
+`<svg viewBox="0 0 48 48" fill="none" width="48" height="48"><path d="M8 40L24 8L40 40Z" fill="#E85D23" fill-opacity="0.15" stroke="#E85D23" stroke-width="2" stroke-linejoin="round"/><line x1="18" y1="28" x2="30" y2="28" stroke="#E85D23" stroke-width="2" stroke-linecap="round"/><line x1="8" y1="40" x2="40" y2="40" stroke="#E85D23" stroke-width="2.5" stroke-linecap="round"/></svg>`,
+`<svg viewBox="0 0 48 48" fill="none" width="48" height="48"><circle cx="24" cy="24" r="16" stroke="#E85D23" stroke-width="2"/><polygon points="24,10 21,22 24,20 27,22" fill="#E85D23"/><polygon points="24,38 27,26 24,28 21,26" fill="#E85D23" fill-opacity="0.35"/><circle cx="24" cy="24" r="2.5" fill="#E85D23"/></svg>`,
+`<svg viewBox="0 0 48 48" fill="none" width="48" height="48"><circle cx="24" cy="10" r="5" fill="#E85D23" fill-opacity="0.2" stroke="#E85D23" stroke-width="2"/><circle cx="9" cy="37" r="5" fill="#E85D23" fill-opacity="0.2" stroke="#E85D23" stroke-width="2"/><circle cx="39" cy="37" r="5" fill="#E85D23" fill-opacity="0.2" stroke="#E85D23" stroke-width="2"/><line x1="24" y1="15" x2="12" y2="33" stroke="#E85D23" stroke-width="1.5"/><line x1="24" y1="15" x2="36" y2="33" stroke="#E85D23" stroke-width="1.5"/><line x1="14" y1="37" x2="34" y2="37" stroke="#E85D23" stroke-width="1.5"/></svg>`,
+`<svg viewBox="0 0 48 48" fill="none" width="48" height="48"><polygon points="24,4 27,17 40,17 30,25 34,38 24,30 14,38 18,25 8,17 21,17" fill="#E85D23" fill-opacity="0.2" stroke="#E85D23" stroke-width="2" stroke-linejoin="round"/></svg>`
+];
+const AW_Qs=[
+{q:"When a restructure is triggered in your organisation, what typically happens first?",opts:[{t:"A decision is made by leadership and an org chart is updated",s:1},{t:"We review roles and look at reporting lines before making changes",s:2},{t:"We conduct stakeholder interviews and document current pain points before designing anything",s:3},{t:"We define design principles and align on outcomes before any structural work begins",s:4}]},
+{q:"How are design principles used in your OD work?",opts:[{t:"We don't use design principles — we go straight to the structure",s:1},{t:"We create them sometimes but they aren't consistently applied",s:2},{t:"We develop them collaboratively and use them to guide design decisions throughout",s:3},{t:"Design principles are co-created with stakeholders and govern every design choice from start to finish",s:4}]},
+{q:"How do you understand the current state of your organisation before redesigning it?",opts:[{t:"We rely on what leaders tell us — there's no formal diagnosis",s:1},{t:"We review the org chart and have a few informal conversations",s:2},{t:"We review documents, conduct interviews and analyse workforce data",s:3},{t:"We run a comprehensive assessment across all operating model layers — strategy, people, process, technology and governance",s:4}]},
+{q:"How are stakeholders engaged in the design process?",opts:[{t:"Leadership decides and others are informed after the design is finalised",s:1},{t:"We consult a few key people but the design is largely done for them",s:2},{t:"We use a co-design working group with structured sessions and iterative feedback loops",s:3},{t:"We run a full co-design process with diverse stakeholders, validation checkpoints and clear governance from day one",s:4}]},
+{q:"How are roles defined when you redesign an organisation?",opts:[{t:"We copy existing position descriptions or write them quickly as needed",s:1},{t:"We update position descriptions when roles change but there's no consistent approach",s:2},{t:"We use a structured role design process that clarifies purpose, responsibilities and required capabilities",s:3},{t:"Roles are designed from the work up — starting with what needs to be done, then the capabilities, then the structure",s:4}]},
+{q:"How do you consider technology and AI in your organisation design work?",opts:[{t:"We don't factor technology into OD work — it's handled separately by another team",s:1},{t:"We acknowledge technology exists but don't redesign work around it",s:2},{t:"We consider automation and AI when redesigning roles and workflows",s:3},{t:"We actively apply work redesign methods (eliminate, donate, automate, activate) to create future-ready roles",s:4}]},
+{q:"When does change management feature in your OD projects?",opts:[{t:"It doesn't — change management isn't part of how we approach OD",s:1},{t:"We communicate the changes after the design is finalised",s:2},{t:"Change management is involved from the start to capture impacts and plan consultation",s:3},{t:"Change management, consultation planning and workforce transition are integrated from day one of every project",s:4}]},
+{q:"How do you handle governance and sign-off for organisation design changes?",opts:[{t:"There's no formal process — approvals happen informally",s:1},{t:"Designs are approved by a leader but there's no structured review process",s:2},{t:"We have a clear governance process with agreed sign-off points and a socialisation step",s:3},{t:"We have robust governance with pre-socialisation gates, structured approvals and a post-approval change process",s:4}]},
+{q:"How do you measure whether your organisation design is actually working?",opts:[{t:"We don't have formal measures — we'd notice if something went wrong",s:1},{t:"We track headcount and costs but nothing specific to the design outcomes",s:2},{t:"We establish KPIs aligned to the design objectives and review them periodically",s:3},{t:"OD metrics are embedded in our performance framework and evaluated continuously against design principles",s:4}]},
+{q:"How would you describe your overall OD capability and confidence?",opts:[{t:"I'm relatively new to OD and learning as I go — my approach is mostly reactive",s:1},{t:"I can do the basics but I'm not always confident in the rigour of my approach",s:2},{t:"I have a solid methodology and can lead OD work, though I still look for support on complex projects",s:3},{t:"I lead complex OD projects with confidence, mentor others and apply a repeatable principles-led approach",s:4}]}
+];
+const AW_ARC=[
+{lo:10,hi:17,name:"The Reactive Restructurer",tag:"You fix the fire — but the smoke keeps coming back.",desc:"You're responding to organisational problems as they arise, often under significant pressure. Restructures happen reactively and, while they address the immediate issue, root causes often go unaddressed. You have good instincts, but not yet a repeatable method — and that gap creates rework, confusion and change fatigue.",acts:["Before touching a single reporting line, define 'why' — what outcomes does this change need to deliver? This one question shifts everything.","Learn to run a basic current state assessment. Conduct 5–10 stakeholder interviews and review key documents before proposing any design.","Introduce design principles to your next project. Even 3–5 co-created principles can dramatically improve decision quality and reduce conflict later.","Build a simple co-design working group for your next change. The people closest to the work hold the most valuable — and most underused — insights.","Invest in your OD methodology. Explore formal learning like the Simplify Co Masterclass to build a structured, repeatable approach you can apply immediately."]},
+{lo:18,hi:24,name:"The Blueprint Builder",tag:"You know the tools. Now it's time to sharpen them.",desc:"You understand the basics of OD and are applying some good methods — but your approach isn't yet fully consistent or structured. Under time pressure you tend to skip important steps and rely on intuition where a clearer framework would serve you better. You're building something solid; it just needs more discipline.",acts:["Formalise your design principles practice and make it non-negotiable — every project, every time, before any design work begins.","Invest time in functional modelling. Map what the organisation actually does before jumping to how it should be structured. The functional model is the backbone of a good design.","Strengthen your co-design approach — think of it less as consultation and more as the mechanism for generating your best ideas.","Integrate change management from the very start of your next OD project, not at the end when the design is already locked.","Document your methodology so it's repeatable and teachable — your IP is more valuable when it's not locked inside your head."]},
+{lo:25,hi:30,name:"The Principled Practitioner",tag:"You have the method. Now stretch it further.",desc:"You're doing a lot right. You use design principles, engage stakeholders thoughtfully and have a clear process you trust. The next frontier is deepening your practice — integrating data more rigorously, future-proofing roles with AI in mind, and building the executive communication skills to turn great designs into approved and implemented outcomes.",acts:["Develop your ability to run executive playback sessions confidently. Your designs are only as powerful as your ability to gain buy-in at the top.","Go deeper on functional modelling and service catalogues to sharpen the rigour of your macro design options.","Explore work redesign methods (eliminate, donate, automate, activate) to future-proof roles in the context of AI — this is where OD is heading.","Build stronger outcome metrics into your projects. Move from 'we believe the design is working' to 'here is the data that shows it'.","Mentor someone earlier in their OD journey — teaching is one of the most effective ways to deepen your own expertise."]},
+{lo:31,hi:36,name:"The Systems Architect",tag:"You build structures others can live in. Keep pushing the frontier.",desc:"You operate with confidence across the full OD lifecycle and integrate strategy, structure, roles and people with sophistication. You think in systems, not just structures. The challenge now is staying at the frontier — leading the conversation on AI-enabled work design, building OD as an organisational capability and operating as a genuine strategic partner at the executive level.",acts:["Position yourself as a thought leader in OD — write, speak, facilitate or mentor to shape how the field evolves inside and beyond your organisation.","Lead the AI and work redesign conversation proactively. Don't wait for your organisation to define this for you — own the narrative.","Build an internal OD community of practice to lift capability across your organisation. Your leverage multiplies through the practitioners around you.","Stress-test your designs with harder questions: are they truly future-ready, or just a cleaner version of the current state?","Explore how to embed OD as a continuous organisational discipline — a governed capability — rather than a project-based intervention."]},
+{lo:37,hi:40,name:"The North Star Navigator",tag:"You don't just design organisations — you set the direction others follow.",desc:"You're operating at the highest level of OD mastery. You combine strategy, human-centred design, data and AI literacy into a holistic, future-ready practice. You lead with principles, design with purpose and build organisations where people genuinely thrive — not just function. The question now is not how to improve, but how to scale your impact and develop the next generation of OD leaders.",acts:["Share your methodology at scale — develop frameworks, tools or IP that extend your thinking beyond your immediate projects.","Champion human-centred OD at the executive table. Be the person who insists that great design is not just efficient, but joyful and purposeful for the people inside it.","Build next-generation OD talent intentionally. Your greatest lever is the practitioners you develop and the culture of design excellence you create.","Stay curious and uncomfortable — AI agents, network organisations, the future of work — the frontier keeps moving and your advantage is staying ahead of it.","Consider how to codify and scale your practice: advisory work, consulting, training or writing that institutionalises what you know."]}
+];
+let awAns=new Array(AW_Qs.length).fill(null);
+function awStart(){document.getElementById('aw-intro').classList.remove('active');awRenderQ(0);}
+function awRenderQ(i){
+  const c=document.getElementById('aw-qc');const q=AW_Qs[i];const pct=Math.round((i/AW_Qs.length)*100);
+  c.innerHTML=`<div class="aw-screen active"><div class="aw-prog"><div class="aw-prog-fill" style="width:${pct}%"></div></div><div class="aw-qlbl">Question ${i+1} of ${AW_Qs.length}</div><div class="aw-qtext">${q.q}</div><div id="aw-opts">${q.opts.map((o,j)=>`<button class="aw-opt${awAns[i]===j?' sel':''}" onclick="awPick(${i},${j})"><div class="aw-orow"><div class="aw-olet">${'ABCD'[j]}</div><div>${o.t}</div></div></button>`).join('')}</div><div class="aw-navrow"><button class="aw-bbk" onclick="awBack(${i})">${i===0?'← Back to start':'← Previous'}</button><button class="aw-bnx${awAns[i]!==null?' on':''}" id="aw-bnx" onclick="awNext(${i})">${i===AW_Qs.length-1?'See my results →':'Next →'}</button></div></div>`;
+}
+function awPick(qi,oi){awAns[qi]=oi;document.querySelectorAll('#aw-opts .aw-opt').forEach((b,j)=>b.classList.toggle('sel',j===oi));const b=document.getElementById('aw-bnx');if(b)b.classList.add('on');}
+function awBack(i){document.getElementById('aw-qc').innerHTML='';if(i===0)document.getElementById('aw-intro').classList.add('active');else awRenderQ(i-1);}
+function awNext(i){if(awAns[i]===null)return;document.getElementById('aw-qc').innerHTML='';if(i===AW_Qs.length-1)document.getElementById('aw-cap').classList.add('active');else awRenderQ(i+1);}
+function awBackCap(){document.getElementById('aw-cap').classList.remove('active');awRenderQ(AW_Qs.length-1);}
+
+// ── HubSpot integration ──────────────────────────────────────────────────────
+function awSendToHubSpot(name, email, org, role, consent) {
+  const parts = name.trim().split(/\s+/);
+  const firstname = parts[0];
+  const lastname = parts.slice(1).join(' ');
+
+  const fields = [
+    { name: 'email',     value: email },
+    { name: 'firstname', value: firstname },
+    { name: 'lastname',  value: lastname }
+  ];
+  if (org)  fields.push({ name: 'company',  value: org });
+  if (role) fields.push({ name: 'jobtitle', value: role });
+
+  const payload = {
+    fields: fields,
+    legalConsentOptions: {
+      consent: {
+        consentToProcess: true,
+        text: 'I agree to allow Simplify Co to store and process my personal data.',
+        communications: [{
+          value: consent,
+          subscriptionTypeId: 999,
+          text: 'I agree to receive OD insights and updates from Simplify Co.'
+        }]
+      }
+    }
+  };
+
+  fetch('https://api.hsforms.com/submissions/v3/integration/submit/443063870/d98afb64-49cc-440a-b74e-8af057ec3e07', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  }).catch(function(err) {
+    console.error('HubSpot submission error:', err);
+  });
+}
+// ────────────────────────────────────────────────────────────────────────────
+
+function awSubmit(){
+  const name    = document.getElementById('aw-fname').value.trim();
+  const email   = document.getElementById('aw-femail').value.trim();
+  const org     = document.getElementById('aw-forg').value.trim();
+  const role    = document.getElementById('aw-frole').value.trim();
+  const consent = document.getElementById('aw-fconsent').checked;
+
+  const en = document.getElementById('aw-e-name');
+  const ee = document.getElementById('aw-e-email');
+  let ok = true;
+  en.style.display = 'none';
+  ee.style.display = 'none';
+
+  if (!name) { en.style.display = 'block'; ok = false; }
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { ee.style.display = 'block'; ok = false; }
+  if (!ok) return;
+
+  // Fire-and-forget — results reveal regardless of API outcome
+  awSendToHubSpot(name, email, org, role, consent);
+  awShowRes();
+}
+
+function awShowRes(){
+  document.getElementById('aw-cap').classList.remove('active');
+  const total=awAns.reduce((s,a,i)=>s+(a!==null?AW_Qs[i].opts[a].s:0),0);
+  const idx=AW_ARC.findIndex(a=>total>=a.lo&&total<=a.hi);
+  const safeIdx=idx>=0?idx:(total<AW_ARC[0].lo?0:AW_ARC.length-1);
+  const arch=AW_ARC[safeIdx];const icon=AW_ICONS[safeIdx];
+  const pct=Math.min(100,Math.max(0,Math.round(((total-10)/30)*100)));
+  document.getElementById('aw-res').classList.add('active');
+  document.getElementById('aw-res-inner').innerHTML=`
+    <div class="aw-prog"><div class="aw-prog-fill" style="width:100%"></div></div>
+    <div class="aw-icon-circle">${icon}</div>
+    <div class="aw-arch-center"><div class="aw-badge">Your OD archetype</div><div class="aw-arch-title">${arch.name}</div><div class="aw-arch-tag">"${arch.tag}"</div></div>
+    <div class="aw-sc-row"><div class="aw-sc-lbl">Maturity score: ${total} / 40</div><div class="aw-sc-track"><div class="aw-sc-fill" style="width:${pct}%"></div></div></div>
+    <div class="aw-arch-desc">${arch.desc}</div>
+    <div class="aw-ax-title">Your next 5 moves</div>
+    ${arch.acts.map((a,i)=>`<div class="aw-ax"><div class="aw-axn">${i+1}</div><div class="aw-axt">${a}</div></div>`).join('')}
+    <div class="aw-cta"><div class="aw-cta-h">Ready to accelerate your OD journey?</div><div class="aw-cta-p">The Simplify Co Masterclass in Organisation Design is a hands-on two-day program that gives you a practical playbook, templates and tools you can apply the very next day — whatever your current maturity level.</div><a class="aw-bpri" href="https://events.humanitix.com/organisation-design-training-course" target="_blank">Learn more about the Masterclass</a></div>
+    <button class="aw-rst" onclick="awRestart()">Start over</button>`;
+}
+function awRestart(){awAns=new Array(AW_Qs.length).fill(null);document.getElementById('aw-res').classList.remove('active');document.getElementById('aw-cap').classList.remove('active');document.getElementById('aw-qc').innerHTML='';document.getElementById('aw-intro').classList.add('active');}
+</script>
+
+</body>
+</html>

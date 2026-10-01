@@ -1,0 +1,19 @@
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="/assets/img/logo-footer.png" alt="Simplify Co. logo" width="1195" height="269">
+        <span class="footer-tag">{{ site.tagline }}</span>
+      </div>
+      <nav class="footer-links" aria-label="Footer">
+        {%- for item in site.nav %}
+        <a href="{{ item.url }}"{% if item.url == path %} aria-current="page"{% endif %}>{{ item.label }}</a>
+        {%- endfor %}
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <span>Copyright © 2026 Simplify Co. All Rights Reserved.</span>
+      <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+    </div>
+  </div>
+</footer>

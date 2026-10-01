@@ -1,0 +1,82 @@
+[
+  {
+    "name": "Hall & Wilcox Lawyers",
+    "src": "/assets/img/clients/hall-wilcox.png",
+    "dark": true
+  },
+  {
+    "name": "Defence Health",
+    "src": "/assets/img/clients/defence-health.svg",
+    "dark": false
+  },
+  {
+    "name": "State Energy Commission",
+    "src": "/assets/img/clients/state-energy-commission.jpg",
+    "dark": false
+  },
+  {
+    "name": "EnergyCo",
+    "src": "/assets/img/clients/energyco.png",
+    "dark": false
+  },
+  {
+    "name": "Navigo",
+    "src": "/assets/img/clients/navigo.png",
+    "dark": false
+  },
+  {
+    "name": "Department of Defence",
+    "src": "/assets/img/clients/department-of-defence.svg",
+    "dark": false
+  },
+  {
+    "name": "BDO",
+    "src": "/assets/img/clients/bdo.png",
+    "dark": false
+  },
+  {
+    "name": "Hyundai",
+    "src": "/assets/img/clients/hyundai.svg",
+    "dark": false
+  },
+  {
+    "name": "Morrison Global",
+    "src": "/assets/img/clients/morrison-global.png",
+    "dark": true
+  },
+  {
+    "name": "Civeo",
+    "src": "/assets/img/clients/civeo.png",
+    "dark": false
+  },
+  {
+    "name": "Teachers Mutual Bank",
+    "src": "/assets/img/clients/teachers-mutual-bank.svg",
+    "dark": false
+  },
+  {
+    "name": "KPMG",
+    "src": "/assets/img/clients/kpmg.svg",
+    "dark": false
+  },
+  {
+    "name": "Optus",
+    "src": "/assets/img/clients/optus.svg",
+    "dark": false
+  },
+  {
+    "name": "ANSTO",
+    "src": "/assets/img/clients/ansto.svg",
+    "dark": false
+  },
+  {
+    "name": "Qubist",
+    "src": "/assets/img/clients/qubist.png",
+    "dark": true
+  },
+  {
+    "name": "Link Wentworth",
+    "src": "/assets/img/clients/link-wentworth.png",
+    "dark": false
+  }
+]

@@ -1,0 +1,12 @@
+# Old single-page anchors (/#services, /#about, /#founders, /#contact) can't be
+# redirected here: browsers never send the #fragment to the server. They're
+# handled by a small script at the top of the home page instead.
+
+# Common aliases for the new pages
+/team          /our-team   301
+/founders      /our-team   301
+/our-founders  /our-team   301
+/about-us      /about      301
+/contact-us    /contact    301
+/service       /services   301
+/home          /           301

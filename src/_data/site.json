@@ -1,0 +1,16 @@
+{
+  "url": "https://simplifyco.com.au",
+  "name": "Simplify Co.",
+  "tagline": "Making Space for What Matters",
+  "email": "hello@simplifyco.com.au",
+  "locale": "en_AU",
+  "ogImage": "/assets/img/og-image.png",
+  "trainingUrl": "https://events.humanitix.com/organisation-design-training-course",
+  "nav": [
+    { "label": "Home", "url": "/" },
+    { "label": "Services", "url": "/services" },
+    { "label": "About", "url": "/about" },
+    { "label": "Our Team", "url": "/our-team" },
+    { "label": "Contact", "url": "/contact" }
+  ]
+}
