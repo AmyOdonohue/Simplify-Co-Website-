@@ -26,7 +26,7 @@ netlify dev --dir _site   # emulates Netlify redirects locally
 
 ## Deploying
 
-- **Git-connected:** build command `npm run build`, publish directory `_site` (set in `netlify.toml`). If this folder lives inside another repo, set the Netlify *Base directory* to `website`.
+- **Git-connected:** build command `npm run build`, publish directory `_site` (set in `netlify.toml`). Leave the Netlify *Base directory* empty.
 - **Manual (drag and drop):** run `npm run build` and upload the `_site` folder. It contains `_redirects`, `assessment.html`, `sitemap.xml` and `robots.txt`, so nothing is lost.
 
 ## Redirects
