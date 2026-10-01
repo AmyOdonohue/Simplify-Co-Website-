@@ -7,7 +7,7 @@ Multi-page rebuild of the Simplify Co. website (previously a single `index.html`
 | URL | Source |
 |-----|--------|
 | `/` | `src/index.njk` — hero, client logos, community sign-up |
-| `/services` | `src/services.njk` — the four offerings; Role Declutter links to `src/assets/docs/role-declutter-one-pager.pdf` (`#organisation-design-training`, `#role-declutter`, `#ai-human-work-redesign`, `#organisation-design-consulting`) |
+| `/services` | `src/services.njk` — the four offerings (`#organisation-design-training`, `#role-declutter`, `#ai-human-work-redesign`, `#organisation-design-consulting`); Role Declutter links to `src/assets/docs/role-declutter-one-pager.pdf` |
 | `/about` | `src/about.njk` — our story, community sign-up |
 | `/our-team` | `src/our-team.njk` — founders |
 | `/contact` | `src/contact.njk` — contact form (Netlify form `contact`) |
