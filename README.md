@@ -8,6 +8,7 @@ Multi-page rebuild of the Simplify Co. website (previously a single `index.html`
 |-----|--------|
 | `/` | `src/index.njk` — hero, client logos, community sign-up |
 | `/services` | `src/services.njk` — the four offerings (`#organisation-design-training`, `#role-declutter`, `#ai-human-work-redesign`, `#organisation-design-consulting`); Role Declutter links to `src/assets/docs/role-declutter-one-pager.pdf` |
+| `/blueprint-org-design-summit-2027` | `src/blueprint-org-design-summit-2027.njk` — Blueprint Org Design Summit 2027 event page with embedded Humanitix checkout; co-host logos in `src/assets/img/partners/` |
 | `/about` | `src/about.njk` — our story, community sign-up |
 | `/our-team` | `src/our-team.njk` — founders |
 | `/contact` | `src/contact.njk` — contact form (Netlify form `contact`) |
