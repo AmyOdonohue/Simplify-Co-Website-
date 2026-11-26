@@ -508,10 +508,8 @@ a.summit-speaker:hover{text-decoration-color:currentColor;}
 .summit-details dt{font-family:'Poppins',sans-serif;font-weight:600;font-size:13px;letter-spacing:0.04em;color:var(--walnut);}
 .summit-details dd{margin:0;font-size:15px;color:var(--ink);}
 .summit-details dd strong{font-family:'Poppins',sans-serif;font-size:18px;color:var(--walnut-dark);}
-.summit-details a,.summit-checkout-fallback a{color:var(--burnt-dark);text-decoration:underline;text-underline-offset:3px;}
-.summit-checkout{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);}
-.summit-checkout iframe{display:block;width:100%;height:760px;border:0;}
-.summit-checkout-fallback{margin:0;padding:12px 20px;font-size:13.5px;color:var(--ink-soft);text-align:center;border-top:1px solid var(--line);background:var(--paper);}
+.summit-details a{color:var(--burnt-dark);text-decoration:underline;text-underline-offset:3px;}
+.summit-tickets-single{grid-template-columns:1fr;max-width:760px;margin:0 auto;}
 .summit-tickets-cta{margin-top:40px;}
 
 .summit-cohost .tm{font-size:0.6em;}
@@ -531,5 +529,4 @@ a.summit-speaker:hover{text-decoration-color:currentColor;}
   .summit-session::before{left:20px;top:22px;}
   .summit-hosts-inline{grid-template-columns:1fr 1fr;}
   .summit-hosts-inline li{padding:12px;}
-  .summit-checkout iframe{height:820px;}
 }

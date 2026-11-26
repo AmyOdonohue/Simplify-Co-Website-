@@ -30,7 +30,7 @@ speakersUrl: "https://resources.navigo.com.au/blueprint-summit-2027"
     <p class="summit-proof">No vendor keynotes. No sales pitches. Just the people who do this work.</p>
 
     <div class="hero-ctas">
-      <a href="#tickets" class="btn btn-primary">Get your ticket</a>
+      <a href="{{ ticketsUrl }}" target="_blank" rel="noopener" class="btn btn-primary">Get your ticket{{ newTab | safe }}</a>
       <a href="{{ updatesUrl }}" target="_blank" rel="noopener" class="btn btn-ghost">Sign up for updates{{ newTab | safe }}</a>
     </div>
   </div>
@@ -129,21 +129,14 @@ speakersUrl: "https://resources.navigo.com.au/blueprint-summit-2027"
       <div class="eyebrow" style="justify-content:center;">Tickets and event details</div>
       <h2>Secure your place at Blueprint</h2>
     </div>
-    <div class="summit-tickets-grid">
+    <div class="summit-tickets-grid summit-tickets-single">
       <dl class="summit-details">
         <div><dt>Date</dt><dd>Wednesday 17 March 2027</dd></div>
         <div><dt>Time</dt><dd>8:30am – 5:30pm AEDT</dd></div>
         <div><dt>Venue</dt><dd>Revy Room, Doltone House Jones Bay Wharf, Level 3, 26–32 Pirrama Rd, Pyrmont NSW 2009</dd></div>
         <div><dt>Ticket price</dt><dd><strong>$495 + GST</strong></dd></div>
-        <div><dt>Payment</dt><dd>Pay in full, or reserve your ticket and pay over time with automatic payments on a saved card. No credit checks. Your ticket is released once the final payment is made.</dd></div>
-        <div><dt>Refunds</dt><dd>No refunds</dd></div>
         <div><dt>Ticketing</dt><dd>Through <a href="{{ ticketsUrl }}" target="_blank" rel="noopener">Humanitix{{ newTab | safe }}</a></dd></div>
       </dl>
-
-      <div class="summit-checkout">
-        <iframe src="{{ ticketsUrl }}?w=true" title="Buy tickets to Blueprint: Org Design Summit 2027 (Humanitix)" loading="lazy" allow="payment"></iframe>
-        <p class="summit-checkout-fallback">Checkout not loading? <a href="{{ ticketsUrl }}" target="_blank" rel="noopener">Get your ticket on Humanitix{{ newTab | safe }}</a></p>
-      </div>
     </div>
     <div class="center summit-tickets-cta">
       <a href="{{ ticketsUrl }}" target="_blank" rel="noopener" class="btn btn-primary">Get your ticket{{ newTab | safe }}</a>
