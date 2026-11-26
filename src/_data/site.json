@@ -9,6 +9,7 @@
   "nav": [
     { "label": "Home", "url": "/" },
     { "label": "Services", "url": "/services" },
+    { "label": "Blueprint 2027", "url": "/blueprint-org-design-summit-2027" },
     { "label": "About", "url": "/about" },
     { "label": "Our Team", "url": "/our-team" },
     { "label": "Contact", "url": "/contact" }
